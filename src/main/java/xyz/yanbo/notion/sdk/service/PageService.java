@@ -1,4 +1,4 @@
 package xyz.yanbo.notion.sdk.service;
 
-public class PageService {
+public interface PageService {
 }
