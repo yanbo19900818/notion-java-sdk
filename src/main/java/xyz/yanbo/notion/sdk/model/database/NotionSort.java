@@ -1,8 +1,6 @@
 package xyz.yanbo.notion.sdk.model.database;
 
 import lombok.Data;
-import xyz.yanbo.notion.sdk.model.NotionDirectionEnum;
-import xyz.yanbo.notion.sdk.model.NotionTimestampEnum;
 
 @Data
 public class NotionSort {
@@ -13,11 +11,39 @@ public class NotionSort {
     /**
      * The name of the timestamp to sort against. Possible values include "created_time" and "last_edited_time".
      */
-    private NotionTimestampEnum timestamp;
+    private TimestampEnum timestamp;
     /**
-     *The direction to sort. Possible values include "ascending" and "descending".
+     * The direction to sort. Possible values include "ascending" and "descending".
      */
-    private NotionDirectionEnum direction;
+    private DirectionEnum direction;
 
+    public enum DirectionEnum {
+        ASCENDING("ascending"),
+        descending("descending");
+        private String code;
 
+        DirectionEnum(String code) {
+            this.code = code;
+        }
+
+        public String getCode() {
+            return code;
+        }
+    }
+
+    public enum TimestampEnum {
+        CREATED_TIME("created_time"),
+
+        LAST_EDITED_TIME("last_edited_time");
+
+        private String code;
+
+        TimestampEnum(String code) {
+            this.code = code;
+        }
+
+        public String getCode() {
+            return code;
+        }
+    }
 }

@@ -9,7 +9,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import xyz.yanbo.notion.sdk.model.parent.NotionParent;
-import xyz.yanbo.notion.sdk.model.property.NotionProperty;
 import xyz.yanbo.notion.sdk.serializer.NotionParentDeserializer;
 
 @Data

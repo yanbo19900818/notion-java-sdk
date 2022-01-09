@@ -1,18 +1,16 @@
-package xyz.yanbo.notion.sdk.model.database;
+package xyz.yanbo.notion.sdk.model.page;
 
 import lombok.Data;
 import xyz.yanbo.notion.sdk.model.NotionFile;
 import xyz.yanbo.notion.sdk.model.parent.NotionParent;
-import xyz.yanbo.notion.sdk.model.richtext.NotionRichText;
 
-import java.util.List;
 import java.util.Map;
 
 @Data
-public class NotionDatabase {
+public class NotionPage {
     /**
-     * Unique identifier for the database.
-     * e.g.:"2f26ee68-df30-4251-aad4-8ddc420cba3d"
+     * Unique identifier of the page.
+     * e.g.:"45ee8d13-687b-47ce-a5ca-6e2e45548c4b"
      */
     private String id;
     /**
@@ -26,30 +24,19 @@ public class NotionDatabase {
      */
     private String lastEditedTime;
     /**
-     * Name of the database as it appears in Notion.
+     * The archived status of the page.
      */
-    private List<NotionRichText> title;
-    /**
-     * Page icon.
-     */
-    //TODO emoji case need to do
-    private NotionFile icon;
+    private boolean archived;
     /**
      * Page cover image.
      */
     private NotionFile cover;
     /**
-     *
-     */
-    private Map<String , NotionDatabaseProperty> properties;
-    /**
      * The parent of this page. Can be a page or workspace. Parent types are defined below.
      */
     private NotionParent parent;
 
-    /**
-     * The URL of the Notion database.
-     * e.g.:"https://www.notion.so/668d797c76fa49349b05ad288df2d136"
-     */
     private String url;
+
+    private Map<String, NotionPageProperty> properties;
 }
