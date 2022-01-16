@@ -1,6 +1,7 @@
 package xyz.yanbo.notion.sdk.model.database;
 
 import lombok.Data;
+import xyz.yanbo.notion.sdk.model.NotionProperty;
 import xyz.yanbo.notion.sdk.model.NotionFile;
 import xyz.yanbo.notion.sdk.model.parent.NotionParent;
 import xyz.yanbo.notion.sdk.model.richtext.NotionRichText;
@@ -41,7 +42,7 @@ public class NotionDatabase {
     /**
      *
      */
-    private Map<String , NotionDatabaseProperty> properties;
+    private Map<String , NotionProperty> properties;
     /**
      * The parent of this page. Can be a page or workspace. Parent types are defined below.
      */

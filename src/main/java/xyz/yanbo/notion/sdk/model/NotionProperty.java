@@ -1,22 +1,21 @@
-package xyz.yanbo.notion.sdk.model.database;
+package xyz.yanbo.notion.sdk.model;
 
 import lombok.Data;
-import xyz.yanbo.notion.sdk.model.NotionColorEnum;
 import xyz.yanbo.notion.sdk.serializer.CommonEnum;
 
 import java.util.List;
 
 @Data
-public class NotionDatabaseProperty {
+public class NotionProperty {
     private String id;
     private NotionPropertyTypeEnum type;
     private String name;
-    private NotionDatabaseFormulaProperty formula;
-    private NotionDatabaseRelationProperty relation;
-    private NotionDatabaseSelectProperty select;
-    private NotionDatabaseNumberProperty number;
-    private NotionDatabaseMultiSelectProperty multiSelect;
-    private NotionDatabaseRollupProperty rollup;
+    private NotionFormulaProperty formula;
+    private NotionRelationProperty relation;
+    private NotionSelectProperty select;
+    private NotionNumberProperty number;
+    private NotionMultiSelectProperty multiSelect;
+    private NotionRollupProperty rollup;
 
     public enum NotionPropertyTypeEnum implements CommonEnum {
         TITLE("title"), RICH_TEXT("rich_text"), NUMBER("number"), SELECT("select"), MULTI_SELECT("multi_select"), DATE("date"), PEOPLE("people"), FILES("files"), CHECKBOX("checkbox"), URL("url"), EMAIL("email"), PHONE_NUMBER("phone_number"), FORMULA("formula"), RELATION("relation"), ROLLUP("rollup"), CREATED_TIME("created_time"), CREATED_BY("created_by"), LAST_EDITED_TIME("last_edited_time"), LAST_EDITED_BY("last_edited_by");
@@ -41,7 +40,7 @@ public class NotionDatabaseProperty {
     }
 
     @Data
-    public class NotionDatabaseFormulaProperty {
+    public class NotionFormulaProperty {
         /**
          * Formula to evaluate for this property. You can read more about the syntax for formulas in the help center
          */
@@ -49,41 +48,41 @@ public class NotionDatabaseProperty {
     }
 
     @Data
-    public class NotionDatabaseRelationProperty {
+    public class NotionRelationProperty {
         /**
-         * The database this relation refers to. New linked pages must belong to this database in order to be valid.
+         * The  this relation refers to. New linked pages must belong to this  in order to be valid.
          * e.g.:"668d797c-76fa-4934-9b05-ad288df2d136"
          */
-        private String databaseId;
+        private String Id;
         /**
-         * By default, relations are formed as two synced properties across databases: if you make a change to one property, it updates the synced property at the same time. synced_property_name refers to the name of the property in the related database.
+         * By default, relations are formed as two synced properties across s: if you make a change to one property, it updates the synced property at the same time. synced_property_name refers to the name of the property in the related .
          * e.g.:"Ingredients"
          */
         private String syncedPropertyName;
         /**
-         * By default, relations are formed as two synced properties across databases: if you make a change to one property, it updates the synced property at the same time. synced_property_id refers to the id of the property in the related database. This is usually a short string of random letters and symbols.
+         * By default, relations are formed as two synced properties across s: if you make a change to one property, it updates the synced property at the same time. synced_property_id refers to the id of the property in the related . This is usually a short string of random letters and symbols.
          * e.g.:"fy:{"
          */
         private String syncedPropertyId;
     }
 
     @Data
-    public class NotionDatabaseSelectProperty {
-        private List<NotionDatabaseSelectOption> options;
+    public class NotionSelectProperty {
+        private List<NotionSelectOption> options;
     }
 
     @Data
-    public class NotionDatabaseNumberProperty {
-        private NotionDatabaseNumberFormatEnum format;
+    public class NotionNumberProperty {
+        private NotionNumberFormatEnum format;
 
     }
 
-    public enum NotionDatabaseNumberFormatEnum implements CommonEnum {
+    public enum NotionNumberFormatEnum implements CommonEnum {
         NUMBER("number"), NUMBER_WITH_COMMAS("number_with_commas"), PERCENT("percent"), DOLLAR("dollar"), CANADIAN_DOLLAR("canadian_dollar"), EURO("euro"), POUND("pound"), YEN("yen"), RUBLE("ruble"), RUPEE("rupee"), WON("won"), YUAN("yuan"), REAL("real"), LIRA("lira"), RUPIAH("rupiah"), FRANC("franc"), HONG_KONG_DOLLAR("hong_kong_dollar"), NEW_ZEALAND_DOLLAR("new_zealand_dollar"), KRONA("krona"), NORWEGIAN_KRONE("norwegian_krone"), MEXICAN_PESO("mexican_peso"), RAND("rand"), NEW_TAIWAN_DOLLAR("new_taiwan_dollar"), DANISH_KRONE("danish_krone"), ZLOTY("zloty"), BAHT("baht"), FORINT("forint"), KORUNA("koruna"), SHEKEL("shekel"), CHILEAN_PESO("chilean_peso"), PHILIPPINE_PESO("philippine_peso"), DIRHAM("dirham"), COLOMBIAN_PESO("colombian_peso"), RIYAL("riyal"), RINGGIT("ringgit"), LEU("leu"), ARGENTINE_PESO("argentine_peso"), URUGUAYAN_PESO("uruguayan_peso"),
         ;
         private String code;
 
-        NotionDatabaseNumberFormatEnum(String code) {
+        NotionNumberFormatEnum(String code) {
             this.code = code;
         }
 
@@ -93,26 +92,26 @@ public class NotionDatabaseProperty {
     }
 
     @Data
-    public class NotionDatabaseMultiSelectProperty {
-        private List<NotionDatabaseMultiSelectOption> options;
+    public class NotionMultiSelectProperty {
+        private List<NotionMultiSelectOption> options;
     }
 
     @Data
-    public class NotionDatabaseMultiSelectOption {
+    public class NotionMultiSelectOption {
         private String name;
         private String id;
         private NotionColorEnum color;
     }
 
     @Data
-    public class NotionDatabaseSelectOption {
+    public class NotionSelectOption {
         private String name;
         private String id;
         private NotionColorEnum color;
     }
 
     @Data
-    public class NotionDatabaseRollupProperty {
+    public class NotionRollupProperty {
         /**
          * The name of the relation property this property is responsible for rolling up.
          * e.g.:"Meals"
@@ -124,11 +123,11 @@ public class NotionDatabaseProperty {
          */
         private String relationPropertyId;
         /**
-         * The name of the property of the pages in the related database that is used as an input to function.
+         * The name of the property of the pages in the related  that is used as an input to function.
          */
         private String rollupPropertyName;
         /**
-         * The id of the property of the pages in the related database that is used as an input to function.
+         * The id of the property of the pages in the related  that is used as an input to function.
          */
         private String rollupPropertyId;
         /**
@@ -137,11 +136,11 @@ public class NotionDatabaseProperty {
         private String function;
     }
 
-    public enum NotionDatabaseFunctionEnum implements CommonEnum {
+    public enum NotionFunctionEnum implements CommonEnum {
         COUNT_ALL("count_all"), COUNT_VALUES("count_values"), COUNT_UNIQUE_VALUES("count_unique_values"), COUNT_EMPTY("count_empty"), COUNT_NOT_EMPTY("count_not_empty"), PERCENT_EMPTY("percent_empty"), PERCENT_NOT_EMPTY("percent_not_empty"), SUM("sum"), AVERAGE("average"), MEDIAN("median"), MIN("min"), MAX("max"), RANGE("range"), SHOW_ORIGINAL("show_original");
         private String code;
 
-        NotionDatabaseFunctionEnum(String code) {
+        NotionFunctionEnum(String code) {
             this.code = code;
         }
 

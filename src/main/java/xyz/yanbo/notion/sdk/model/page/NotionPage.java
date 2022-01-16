@@ -2,6 +2,7 @@ package xyz.yanbo.notion.sdk.model.page;
 
 import lombok.Data;
 import xyz.yanbo.notion.sdk.model.NotionFile;
+import xyz.yanbo.notion.sdk.model.NotionProperty;
 import xyz.yanbo.notion.sdk.model.parent.NotionParent;
 
 import java.util.Map;
@@ -38,5 +39,5 @@ public class NotionPage {
 
     private String url;
 
-    private Map<String, NotionPageProperty> properties;
+    private Map<String, NotionProperty> properties;
 }

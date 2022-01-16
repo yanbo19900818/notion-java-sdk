@@ -1,10 +1,7 @@
 package xyz.yanbo.notion.sdk.serializer;
 
 import com.google.gson.*;
-import xyz.yanbo.notion.sdk.model.parent.NotionDatabaseParent;
-import xyz.yanbo.notion.sdk.model.parent.NotionPageParent;
 import xyz.yanbo.notion.sdk.model.parent.NotionParent;
-import xyz.yanbo.notion.sdk.model.parent.NotionWorkspaceParent;
 
 import java.lang.reflect.Type;
 
@@ -24,11 +21,11 @@ public class NotionParentDeserializer implements JsonDeserializer<NotionParent> 
 
         switch (notionParentType) {
             case DATABSE:
-                return context.deserialize(json, NotionDatabaseParent.class);
+                return context.deserialize(json, NotionParent.NotionDatabaseParent.class);
             case PAGE:
-                return context.deserialize(json, NotionPageParent.class);
+                return context.deserialize(json, NotionParent.NotionPageParent.class);
             case WORKSPACE:
-                return context.deserialize(json, NotionWorkspaceParent.class);
+                return context.deserialize(json, NotionParent.NotionWorkspaceParent.class);
         }
         return new NotionParent();
     }

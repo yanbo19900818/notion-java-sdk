@@ -31,5 +31,18 @@ public class NotionParent {
             return null;
         }
     }
+    @Data
+    public class NotionWorkspaceParent extends NotionParent {
+        private boolean workspace;
+    }
+    @Data
+    public class NotionPageParent extends NotionParent {
+        private String pageId;
+    }
+    @Data
+    public class NotionDatabaseParent extends NotionParent {
+        private String databaseId;
+    }
+
 }
 
