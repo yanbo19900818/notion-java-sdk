@@ -23,10 +23,7 @@ public class EnumTypeAdapterFactory implements TypeAdapterFactory {
         Map<Object, String> map = new HashMap<>();
         Arrays.stream(typeToken.getRawType().getEnumConstants()).forEach(e -> {
             CommonEnum tt = (CommonEnum) e;
-            Field field = Arrays.stream(tt.getClass().getDeclaredFields()).findFirst().orElse(null);
-            if (field != null) {
-                map.put(tt, tt.getCode());
-            }
+            map.put(tt, tt.getCode());
         });
         return new TypeAdapter<T>() {
             @Override
