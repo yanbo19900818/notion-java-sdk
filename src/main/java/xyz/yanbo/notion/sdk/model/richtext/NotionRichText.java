@@ -2,6 +2,7 @@ package xyz.yanbo.notion.sdk.model.richtext;
 
 import lombok.Data;
 import xyz.yanbo.notion.sdk.model.NotionAnnotation;
+import xyz.yanbo.notion.sdk.serializer.CommonEnum;
 
 @Data
 public class NotionRichText {
@@ -13,7 +14,7 @@ public class NotionRichText {
 
     private NotionRichTextTypeEnum type;
 
-    public enum NotionRichTextTypeEnum {
+    public enum NotionRichTextTypeEnum implements CommonEnum {
         TEXT("text"),
         MENTION("mention"),
         EQUATION("equation");

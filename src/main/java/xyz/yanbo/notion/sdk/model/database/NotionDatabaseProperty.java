@@ -2,6 +2,7 @@ package xyz.yanbo.notion.sdk.model.database;
 
 import lombok.Data;
 import xyz.yanbo.notion.sdk.model.NotionColorEnum;
+import xyz.yanbo.notion.sdk.serializer.CommonEnum;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class NotionDatabaseProperty {
     private NotionDatabaseMultiSelectProperty multiSelect;
     private NotionDatabaseRollupProperty rollup;
 
-    public enum NotionPropertyTypeEnum {
+    public enum NotionPropertyTypeEnum implements CommonEnum {
         TITLE("title"), RICH_TEXT("rich_text"), NUMBER("number"), SELECT("select"), MULTI_SELECT("multi_select"), DATE("date"), PEOPLE("people"), FILES("files"), CHECKBOX("checkbox"), URL("url"), EMAIL("email"), PHONE_NUMBER("phone_number"), FORMULA("formula"), RELATION("relation"), ROLLUP("rollup"), CREATED_TIME("created_time"), CREATED_BY("created_by"), LAST_EDITED_TIME("last_edited_time"), LAST_EDITED_BY("last_edited_by");
         private String code;
 
@@ -77,7 +78,7 @@ public class NotionDatabaseProperty {
 
     }
 
-    public enum NotionDatabaseNumberFormatEnum {
+    public enum NotionDatabaseNumberFormatEnum implements CommonEnum {
         NUMBER("number"), NUMBER_WITH_COMMAS("number_with_commas"), PERCENT("percent"), DOLLAR("dollar"), CANADIAN_DOLLAR("canadian_dollar"), EURO("euro"), POUND("pound"), YEN("yen"), RUBLE("ruble"), RUPEE("rupee"), WON("won"), YUAN("yuan"), REAL("real"), LIRA("lira"), RUPIAH("rupiah"), FRANC("franc"), HONG_KONG_DOLLAR("hong_kong_dollar"), NEW_ZEALAND_DOLLAR("new_zealand_dollar"), KRONA("krona"), NORWEGIAN_KRONE("norwegian_krone"), MEXICAN_PESO("mexican_peso"), RAND("rand"), NEW_TAIWAN_DOLLAR("new_taiwan_dollar"), DANISH_KRONE("danish_krone"), ZLOTY("zloty"), BAHT("baht"), FORINT("forint"), KORUNA("koruna"), SHEKEL("shekel"), CHILEAN_PESO("chilean_peso"), PHILIPPINE_PESO("philippine_peso"), DIRHAM("dirham"), COLOMBIAN_PESO("colombian_peso"), RIYAL("riyal"), RINGGIT("ringgit"), LEU("leu"), ARGENTINE_PESO("argentine_peso"), URUGUAYAN_PESO("uruguayan_peso"),
         ;
         private String code;
@@ -136,7 +137,7 @@ public class NotionDatabaseProperty {
         private String function;
     }
 
-    public enum NotionDatabaseFunctionEnum {
+    public enum NotionDatabaseFunctionEnum implements CommonEnum {
         COUNT_ALL("count_all"), COUNT_VALUES("count_values"), COUNT_UNIQUE_VALUES("count_unique_values"), COUNT_EMPTY("count_empty"), COUNT_NOT_EMPTY("count_not_empty"), PERCENT_EMPTY("percent_empty"), PERCENT_NOT_EMPTY("percent_not_empty"), SUM("sum"), AVERAGE("average"), MEDIAN("median"), MIN("min"), MAX("max"), RANGE("range"), SHOW_ORIGINAL("show_original");
         private String code;
 

@@ -1,12 +1,13 @@
 package xyz.yanbo.notion.sdk.model.parent;
 
 import lombok.Data;
+import xyz.yanbo.notion.sdk.serializer.CommonEnum;
 
 @Data
 public class NotionParent {
     private NotionParentType type;
 
-    public enum NotionParentType {
+    public enum NotionParentType implements CommonEnum {
         DATABSE("database_id"),
         PAGE("page_id"),
         WORKSPACE("workspace");

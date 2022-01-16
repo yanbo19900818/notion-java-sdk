@@ -1,6 +1,7 @@
 package xyz.yanbo.notion.sdk.model.database;
 
 import lombok.Data;
+import xyz.yanbo.notion.sdk.serializer.CommonEnum;
 
 @Data
 public class NotionSort {
@@ -17,7 +18,7 @@ public class NotionSort {
      */
     private DirectionEnum direction;
 
-    public enum DirectionEnum {
+    public enum DirectionEnum implements CommonEnum{
         ASCENDING("ascending"),
         descending("descending");
         private String code;
@@ -31,7 +32,7 @@ public class NotionSort {
         }
     }
 
-    public enum TimestampEnum {
+    public enum TimestampEnum implements CommonEnum {
         CREATED_TIME("created_time"),
 
         LAST_EDITED_TIME("last_edited_time");

@@ -1,6 +1,7 @@
 package xyz.yanbo.notion.sdk.model;
 
 import lombok.Data;
+import xyz.yanbo.notion.sdk.serializer.CommonEnum;
 
 @Data
 public class NotionAnnotation {
@@ -11,7 +12,7 @@ public class NotionAnnotation {
     private boolean code;
     private NotionAnnotationColor color;
 
-    public enum NotionAnnotationColor {
+    public enum NotionAnnotationColor implements CommonEnum {
         DEFAULT("default"),
         BROWN("brown"),
         ORANGE("orange"),
